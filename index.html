@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ✏️ ALTERE: título da aba do navegador -->
+  <title>Quero saber mais — Meu Projeto</title>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-center">
+
+  <div class="card card--form">
+
+    <!-- Faixa superior colorida -->
+    <div class="card-header">
+      <span class="card-header__icon">🚀</span>
+
+      <!-- ✏️ ALTERE: título e subtítulo -->
+      <h1 class="card-header__title">Quero saber mais!</h1>
+      <p  class="card-header__sub">Preencha seus dados e entraremos em contato pelo WhatsApp em breve.</p>
+
+      <!-- Badge de indicação — aparece automaticamente quando há ?ref= na URL -->
+      <div class="badge" id="badgeRef">
+        📣 Indicado por: <span id="nomeRef"></span>
+      </div>
+    </div>
+
+    <!-- Formulário de leads -->
+    <div class="card-body">
+      <form id="formLead" novalidate>
+
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <div class="input-wrap">
+            <span class="input-icon">👤</span>
+            <input type="text"  id="nome"   placeholder="Ex: Rafael Souza"     required autocomplete="name" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="numero">WhatsApp / Telefone</label>
+          <div class="input-wrap">
+            <span class="input-icon">📱</span>
+            <input type="tel"   id="numero" placeholder="Ex: (11) 99999-9999"  required autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">E-mail</label>
+          <div class="input-wrap">
+            <span class="input-icon">✉️</span>
+            <input type="email" id="email"  placeholder="Ex: rafael@email.com" required autocomplete="email" />
+          </div>
+        </div>
+
+        <!-- Campos ocultos — preenchidos automaticamente pelo script.js -->
+        <input type="hidden" id="indicador" />
+        <input type="hidden" id="dataHora"  />
+
+        <button type="submit" class="btn btn--primary btn--full" id="btnEnviar">
+          <div class="spinner" id="spinner"></div>
+          <span id="btnTexto">💬 Quero ser contactado</span>
+        </button>
+
+      </form>
+
+      <div class="alert" id="alerta"></div>
+    </div>
+
+    <footer class="card-footer">
+      🔒 Seus dados estão protegidos e nunca serão compartilhados.
+    </footer>
+
+  </div><!-- /card -->
+
+  <script src="script.js"></script>
+</body>
+</html>

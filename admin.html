@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel de Indicadores</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔗</text></svg>"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-top">
+
+  <!-- ══ Barra de navegação ══════════════════════════════════ -->
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span>🔗</span>
+      <!-- ✏️ ALTERE: nome do painel -->
+      Painel de Indicadores
+    </div>
+    <nav>
+      <a href="index.html" class="btn btn--outline btn--sm">Ver formulário →</a>
+    </nav>
+  </header>
+
+  <!-- ══ Conteúdo principal ══════════════════════════════════ -->
+  <main class="main-content">
+
+    <p class="section-label">Cadastro de novo indicador</p>
+
+    <!-- ── Card: Gerador de link ──────────────────────────── -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head__icon card-head__icon--blue">✨</div>
+        <div>
+          <h2 class="card-head__title">Gerar link de indicação</h2>
+          <p  class="card-head__sub">Gere código, link único e QR Code automaticamente</p>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <!-- Barra de progresso por etapas -->
+        <div class="steps-bar">
+          <div class="steps-bar__step steps-bar__step--active"  id="step1"></div>
+          <div class="steps-bar__step" id="step2"></div>
+          <div class="steps-bar__step" id="step3"></div>
+        </div>
+
+        <!-- Campo de entrada -->
+        <div class="field">
+          <label for="nomeIndicador">Nome do indicador</label>
+          <div class="input-wrap">
+            <span class="input-icon">👤</span>
+            <input type="text" id="nomeIndicador"
+                   placeholder="Ex: João Silva"
+                   autocomplete="off" />
+          </div>
+        </div>
+
+        <button class="btn btn--primary btn--full" id="btnGerar">
+          ⚡ Gerar código e link
+        </button>
+
+        <!-- ── Painel de resultado (oculto até clicar Gerar) ── -->
+        <div id="painelResultado" class="result-panel" style="display:none">
+
+          <hr class="divider" />
+          <p class="result-label">📋 Dados gerados</p>
+
+          <!-- Código -->
+          <div class="data-row">
+            <span class="data-row__tag">Código</span>
+            <span class="data-row__val" id="outCodigo">—</span>
+            <button class="btn-copy" title="Copiar" onclick="copiar('outCodigo', this)">📋</button>
+          </div>
+
+          <!-- Link -->
+          <div class="data-row">
+            <span class="data-row__tag">Link</span>
+            <span class="data-row__val" id="outLink">—</span>
+            <button class="btn-copy" title="Copiar" onclick="copiar('outLink', this)">📋</button>
+          </div>
+
+          <!-- QR Code -->
+          <div class="qr-block">
+            <img id="qrImg" src="" alt="QR Code" width="190" height="190" />
+            <p class="qr-block__hint">📲 Escaneie para acessar o link</p>
+          </div>
+
+          <!-- Botão salvar -->
+          <button class="btn btn--success btn--full" id="btnSalvar">
+            <div class="spinner" id="spinnerSalvar"></div>
+            <span id="txtSalvar">💾 Salvar na planilha</span>
+          </button>
+
+          <div class="alert" id="alertaSalvar"></div>
+        </div>
+
+      </div><!-- /card-body -->
+    </div><!-- /card -->
+
+    <!-- ── Card: Instruções ───────────────────────────────── -->
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head__icon card-head__icon--yellow">💡</div>
+        <div>
+          <h2 class="card-head__title">Como usar os links</h2>
+          <p  class="card-head__sub">Compartilhe com cada indicador o link ou QR Code gerado</p>
+        </div>
+      </div>
+      <div class="card-body card-body--prose">
+        <p>Cada indicador recebe um link único com seu código na URL:</p>
+        <code class="code-block">
+          <!-- ✏️ ALTERE: substitua pelo seu domínio -->
+          https://meuusuario.github.io/?ref=<strong>joao-silva</strong>
+        </code>
+        <p>Quando alguém preencher o formulário por esse link, o campo <strong>Indicador</strong> é preenchido automaticamente — sem que o lead veja.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

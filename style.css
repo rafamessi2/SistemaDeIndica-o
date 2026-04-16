@@ -1,0 +1,539 @@
+/* ════════════════════════════════════════════════════════════
+   STYLE.CSS — Estilos compartilhados entre index.html e admin.html
+   ════════════════════════════════════════════════════════════ */
+
+/* ══ 1. TOKENS DE DESIGN ═══════════════════════════════════════
+   ✏️ ALTERE AQUI para personalizar as cores do projeto
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  /* Marca */
+  --brand:          #1a73e8;
+  --brand-dark:     #1558b0;
+  --brand-light:    #e8f0fe;
+
+  /* Semânticas */
+  --success:        #0f9d58;
+  --success-light:  #e6f4ea;
+  --success-border: #b2dfbd;
+  --warning:        #f4b400;
+  --error:          #d93025;
+  --error-light:    #fdecea;
+  --error-border:   #f5c6cb;
+
+  /* Neutros */
+  --bg:             #f0f4f8;
+  --surface:        #ffffff;
+  --surface-2:      #f8fafc;
+  --text:           #1e293b;
+  --muted:          #64748b;
+  --border:         #e2e8f0;
+  --placeholder:    #c0c9d4;
+
+  /* Forma */
+  --radius:         14px;
+  --radius-sm:      10px;
+  --radius-xs:      8px;
+
+  /* Sombras */
+  --shadow:         0 4px 24px rgba(0,0,0,0.09);
+  --shadow-lg:      0 8px 40px rgba(0,0,0,0.12);
+  --shadow-btn:     0 2px 10px rgba(26,115,232,0.28);
+  --shadow-btn-hov: 0 4px 18px rgba(26,115,232,0.40);
+
+  /* Tipografia */
+  --font:           'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  /* Transições */
+  --t: .2s ease;
+}
+
+/* ══ 2. RESET & BASE ════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+}
+
+/* Variante: centralizada (index.html) */
+body.page-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* Variante: layout com topbar (admin.html) */
+body.page-top {
+  display: block;
+}
+
+/* ══ 3. ANIMAÇÕES ════════════════════════════════════════════════ */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ══ 4. TOPBAR (admin.html) ══════════════════════════════════════ */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.topbar__brand span { font-size: 22px; }
+
+/* ══ 5. LAYOUT DE CONTEÚDO ══════════════════════════════════════ */
+.main-content {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+
+.section-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  padding-left: 2px;
+}
+
+/* ══ 6. CARD ═════════════════════════════════════════════════════ */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: rise .4s cubic-bezier(.22,1,.36,1) both;
+  margin-bottom: 20px;
+}
+
+/* Versão máxima (index.html) */
+.card--form {
+  width: 100%;
+  max-width: 460px;
+  margin-bottom: 0;
+}
+
+/* Cabeçalho com gradiente (index.html) */
+.card-header {
+  background: linear-gradient(135deg, var(--brand) 0%, #4f9ef5 100%);
+  padding: 32px 36px 28px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header::before {
+  content: "";
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  pointer-events: none;
+}
+
+.card-header::after {
+  content: "";
+  position: absolute;
+  bottom: -20px; left: -20px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  pointer-events: none;
+}
+
+.card-header__icon {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.card-header__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.card-header__sub {
+  font-size: 14px;
+  opacity: .85;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* Cabeçalho de card simples (admin.html) */
+.card-head {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-head__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.card-head__icon--blue   { background: var(--brand-light); }
+.card-head__icon--yellow { background: #fef9e0; }
+.card-head__icon--green  { background: var(--success-light); }
+
+.card-head__title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.card-head__sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* Corpo do card */
+.card-body {
+  padding: 24px;
+}
+
+.card-body--prose {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.card-body--prose p { margin-bottom: 8px; }
+.card-body--prose strong { color: var(--text); }
+
+/* Rodapé do card */
+.card-footer {
+  padding: 14px 36px 20px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: #b0bac4;
+}
+
+/* ══ 7. BADGE DE INDICAÇÃO ══════════════════════════════════════ */
+.badge {
+  display: none;
+  margin-top: 12px;
+  background: rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 5px 13px;
+  border-radius: 20px;
+  width: fit-content;
+  position: relative;
+  backdrop-filter: blur(4px);
+}
+
+/* ══ 8. FORMULÁRIO ══════════════════════════════════════════════ */
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  opacity: .6;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  color: var(--text);
+  background: var(--surface-2);
+  outline: none;
+  transition: border var(--t), box-shadow var(--t), background var(--t);
+  -webkit-appearance: none;
+}
+
+input:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3.5px rgba(26,115,232,.13);
+  background: #fff;
+}
+
+input.field--error {
+  border-color: var(--error) !important;
+  box-shadow: 0 0 0 3px rgba(217,48,37,.12) !important;
+}
+
+input::placeholder { color: var(--placeholder); }
+
+/* ══ 9. BOTÕES ══════════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--t), box-shadow var(--t), transform .1s;
+  white-space: nowrap;
+}
+
+.btn:active { transform: scale(.97); }
+
+/* Tamanhos */
+.btn--full { width: 100%; padding: 13px; font-size: 15px; }
+.btn--sm   { padding: 7px 14px; font-size: 13px; }
+
+/* Variantes de cor */
+.btn--primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--shadow-btn);
+}
+.btn--primary:hover    { background: var(--brand-dark); box-shadow: var(--shadow-btn-hov); }
+.btn--primary:disabled { background: #94a3b8; box-shadow: none; cursor: not-allowed; }
+
+.btn--success {
+  background: var(--success);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(15,157,88,.22);
+}
+.btn--success:hover    { background: #0a7a44; }
+.btn--success:disabled { background: #94a3b8; box-shadow: none; cursor: not-allowed; }
+
+.btn--outline {
+  background: transparent;
+  color: var(--muted);
+  border: 1.5px solid var(--border);
+}
+.btn--outline:hover { background: var(--bg); color: var(--text); }
+
+/* Botão copiar (pequeno, apenas ícone) */
+.btn-copy {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 6px;
+  transition: background var(--t);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.btn-copy:hover { background: var(--border); }
+
+/* ══ 10. SPINNER ════════════════════════════════════════════════ */
+.spinner {
+  width: 17px;
+  height: 17px;
+  border: 2.5px solid rgba(255,255,255,.30);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .65s linear infinite;
+  display: none;
+  flex-shrink: 0;
+}
+
+/* ══ 11. ALERTS ══════════════════════════════════════════════════ */
+.alert {
+  display: none;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.alert--success {
+  background: var(--success-light);
+  color: #1a7c34;
+  border: 1px solid var(--success-border);
+}
+
+.alert--error {
+  background: var(--error-light);
+  color: #b71c1c;
+  border: 1px solid var(--error-border);
+}
+
+/* ══ 12. BARRA DE ETAPAS (admin.html) ═══════════════════════════ */
+.steps-bar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.steps-bar__step {
+  flex: 1;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--border);
+  transition: background var(--t);
+}
+
+.steps-bar__step--active   { background: var(--brand); }
+.steps-bar__step--complete { background: var(--success); }
+
+/* ══ 13. PAINEL DE RESULTADO (admin.html) ═══════════════════════ */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+  border: none;
+}
+
+.result-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.data-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  margin-bottom: 9px;
+}
+
+.data-row__tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--muted);
+  min-width: 56px;
+  flex-shrink: 0;
+}
+
+.data-row__val {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  word-break: break-all;
+}
+
+/* ══ 14. QR CODE BLOCK (admin.html) ════════════════════════════ */
+.qr-block {
+  text-align: center;
+  padding: 16px 0 12px;
+}
+
+.qr-block img {
+  border-radius: var(--radius-sm);
+  border: 3px solid var(--border);
+  padding: 8px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+}
+
+.qr-block__hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ══ 15. BLOCO DE CÓDIGO INLINE ════════════════════════════════ */
+.code-block {
+  display: block;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  padding: 10px 14px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: var(--text);
+  word-break: break-all;
+  font-family: 'Courier New', monospace;
+}
+
+/* ══ 16. RESPONSIVO ════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .card-header,
+  .card-body,
+  .card-footer { padding-left: 20px; padding-right: 20px; }
+
+  .card-head { padding: 16px 18px; }
+  .card-body { padding: 18px; }
+
+  .topbar { padding: 0 16px; }
+  .topbar__brand { font-size: 14px; }
+}
