@@ -15,7 +15,7 @@ const CONFIG = {
   /* 2. Número do WhatsApp que vai receber o contato do lead
         Formato: DDI + DDD + número (somente dígitos, sem espaços)
         Exemplo Brasil: "5511999999999" */
-  whatsappNumero: "5511999999999",
+  whatsappNumero: "5519993211165",
 
   /* 3. Nome do seu projeto — aparece na mensagem automática do WhatsApp */
   nomeProjeto: "Gran Treviso",
