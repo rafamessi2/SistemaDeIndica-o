@@ -18,7 +18,7 @@ const CONFIG = {
   whatsappNumero: "5511999999999",
 
   /* 3. Nome do seu projeto — aparece na mensagem automática do WhatsApp */
-  nomeProjeto: "Meu Projeto",
+  nomeProjeto: "Gran Treviso",
 
 };
 /* ══════════════════════════════════════════════════════════ */
