@@ -5,22 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- ✏️ ALTERE: título da aba do navegador -->
-  <title>Quero saber mais — Gran Treviso</title>
+  <title>Cadastre-se — Gran Reserva Treviso</title>
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>"/>
+  <!-- Favicon com a cor dourada do projeto -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>"/>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="page-center">
 
+  <!--
+    ╔═══════════════════════════════════════════════════════╗
+    ║  IMAGEM DE FUNDO                                      ║
+    ║  Salve a imagem do empreendimento como "bg.jpg"       ║
+    ║  na mesma pasta que este arquivo antes de publicar.   ║
+    ║  O CSS vai aplicar automaticamente (style.css linha   ║
+    ║  "background-image: url('bg.jpg')").                  ║
+    ╚═══════════════════════════════════════════════════════╝
+  -->
+
   <div class="card card--form">
 
-    <!-- Faixa superior colorida -->
+    <!-- ── Cabeçalho escuro luxo ────────────────────────────── -->
     <div class="card-header">
-      <span class="card-header__icon">🚀</span>
 
-      <!-- ✏️ ALTERE: título e subtítulo -->
-      <h1 class="card-header__title">Quero saber mais!</h1>
-      <p  class="card-header__sub">Preencha seus dados e entraremos em contato pelo WhatsApp em breve.</p>
+      <!-- ✏️ ALTERE: ícone, título e subtítulo do formulário -->
+      <span class="card-header__icon">🏡</span>
+      <h1 class="card-header__title">Quero conhecer o projeto</h1>
+      <p  class="card-header__sub">
+        Preencha seus dados e um de nossos especialistas entrará em contato pelo WhatsApp.
+      </p>
 
       <!-- Badge de indicação — aparece automaticamente quando há ?ref= na URL -->
       <div class="badge" id="badgeRef">
@@ -28,7 +42,7 @@
       </div>
     </div>
 
-    <!-- Formulário de leads -->
+    <!-- ── Formulário de leads ───────────────────────────────── -->
     <div class="card-body">
       <form id="formLead" novalidate>
 
@@ -36,7 +50,13 @@
           <label for="nome">Nome completo</label>
           <div class="input-wrap">
             <span class="input-icon">👤</span>
-            <input type="text"  id="nome"   placeholder="Ex: Rafael Souza"     required autocomplete="name" />
+            <input
+              type="text"
+              id="nome"
+              placeholder="Ex: Rafael Souza"
+              required
+              autocomplete="name"
+            />
           </div>
         </div>
 
@@ -44,7 +64,13 @@
           <label for="numero">WhatsApp / Telefone</label>
           <div class="input-wrap">
             <span class="input-icon">📱</span>
-            <input type="tel"   id="numero" placeholder="Ex: (11) 99999-9999"  required autocomplete="tel" />
+            <input
+              type="tel"
+              id="numero"
+              placeholder="Ex: (11) 99999-9999"
+              required
+              autocomplete="tel"
+            />
           </div>
         </div>
 
@@ -52,7 +78,13 @@
           <label for="email">E-mail</label>
           <div class="input-wrap">
             <span class="input-icon">✉️</span>
-            <input type="email" id="email"  placeholder="Ex: rafael@email.com" required autocomplete="email" />
+            <input
+              type="email"
+              id="email"
+              placeholder="Ex: rafael@email.com"
+              required
+              autocomplete="email"
+            />
           </div>
         </div>
 
@@ -70,6 +102,7 @@
       <div class="alert" id="alerta"></div>
     </div>
 
+    <!-- ── Rodapé ────────────────────────────────────────────── -->
     <footer class="card-footer">
       🔒 Seus dados estão protegidos e nunca serão compartilhados.
     </footer>
