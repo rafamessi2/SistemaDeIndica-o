@@ -18,7 +18,7 @@ const CONFIG = {
   whatsappNumero: "5519993211165",
 
   /* 3. Nome do seu projeto — aparece na mensagem automática do WhatsApp */
-  nomeProjeto: "Gran Treviso",
+  nomeProjeto: "Gran Reserva Treviso",
 
 };
 /* ══════════════════════════════════════════════════════════ */
@@ -148,7 +148,7 @@ document.getElementById("formLead").addEventListener("submit", async function (e
     const mensagem =
       `Olá! Meu nome é ${nome}, acabei de preencher o formulário` +
       ` e vim pela indicação de ${nomeIndicador}.` +
-      ` Gostaria de saber mais sobre ${CONFIG.nomeProjeto}.`;
+      ` Gostaria de saber mais sobre o ${CONFIG.nomeProjeto}.`;
 
     /* Redireciona após 1.5 s para o usuário ver a mensagem de sucesso */
     setTimeout(() => {
