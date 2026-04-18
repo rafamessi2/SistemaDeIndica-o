@@ -15,7 +15,7 @@ const CONFIG = {
         Exemplos:
           "https://meuusuario.github.io"              ← repo com nome do usuário
           "https://meuusuario.github.io/meu-projeto"  ← repo com nome diferente */
-  urlBase: "https://rafamessi2.github.io/SistemaDeIndica-o/",
+  urlBase: "https://painelafiliados.com.br/",
 
 };
 /* ══════════════════════════════════════════════════════════ */
